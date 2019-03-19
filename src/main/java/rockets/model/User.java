@@ -5,6 +5,8 @@ import java.util.Objects;
 import static org.apache.commons.lang3.Validate.notBlank;
 
 public class User extends Entity {
+
+    //new
     private String firstName;
 
     private String lastName;
