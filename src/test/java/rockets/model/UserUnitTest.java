@@ -59,4 +59,7 @@ public class UserUnitTest {
         anotherUser.setEmail("def@example.com");
         assertFalse(target.equals(anotherUser));
     }
+
+    //Maya change
+    
 }
