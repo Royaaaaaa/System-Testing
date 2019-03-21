@@ -19,7 +19,9 @@ public class User extends Entity {
         return firstName;
     }
 
+    // ext.2. Add nonBlank constraint
     public void setFirstName(String firstName) {
+        notBlank(firstName, "firstname cannot be null or empty");
         this.firstName = firstName;
     }
 
@@ -27,7 +29,9 @@ public class User extends Entity {
         return lastName;
     }
 
+    // ext.3. Add nonBlank constraint
     public void setLastName(String lastName) {
+        notBlank(lastName, "lastname cannot be null or empty");
         this.lastName = lastName;
     }
 

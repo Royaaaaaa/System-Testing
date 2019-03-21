@@ -12,9 +12,9 @@ public class Rocket extends Entity {
 
     private String manufacturer;
 
-    private String massToLEO; // distination
+    private String massToLEO;
 
-    private String massToGTO; // distination
+    private String massToGTO;
 
     private String massToOther;
 

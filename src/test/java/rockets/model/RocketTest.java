@@ -11,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class RocketTest {
     private Rocket target1;
     private Rocket target2;
-//    private String name;
-//    private String country;
-//    private String manufacturer;
 
     @BeforeEach
     public void setUp() {
@@ -23,7 +20,6 @@ class RocketTest {
 
     @DisplayName("should return true when parameter is an empty string")
     @Test
-//    @ValueSource(strings = {"", " ", "  "})
     public void testReturnTrueWhenParamIsEmpty() {
         assertTrue(target1.getName().trim().equals(""));
         assertTrue(target1.getCountry().trim().equals(""));
@@ -40,5 +36,18 @@ class RocketTest {
 
     }
 
+    @DisplayName("should return true when two rockets are the same")
+    @Test
+    public void shouldReturnTrueWhenRocketsAreTheSame() {
+        Rocket testRocket = new Rocket("rocket", "country", "manufacturer");
+        assertTrue(target2.equals(testRocket));
+    }
+
+    @DisplayName("should return false when two rockets are different")
+    @Test
+    public void shouldReturnFalseWhenRocketsAreDifferent() {
+        Rocket testRocket = new Rocket("rocket1", "country1", "manufacturer1");
+        assertFalse(target2.equals(testRocket));
+    }
 
 }
