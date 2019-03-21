@@ -60,19 +60,18 @@ public class Rocket extends Entity {
     }
 
     public void setMassToLEO(String massToLEO) {
-        notBlank(massToLEO, "password cannot be null or empty");
+        notBlank(massToLEO, "massToLEO cannot be null or empty");
         this.massToLEO = massToLEO;
     }
 
     public void setMassToGTO(String massToGTO) {
-
-        notBlank(massToLEO, "password cannot be null or empty");
+        notBlank(massToGTO, "massToGTO cannot be null or empty");
         this.massToGTO = massToGTO;
     }
 
     public void setMassToOther(String massToOther) {
 
-        notBlank(massToOther, "password cannot be null or empty");
+        notBlank(massToOther, "massToOther cannot be null or empty");
         this.massToOther = massToOther;
     }
 

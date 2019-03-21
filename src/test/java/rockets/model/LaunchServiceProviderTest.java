@@ -35,7 +35,7 @@ class LaunchServiceProviderTest {
 
         assertFalse(target2.getName().trim().equals(""));
         assertFalse(target2.getCountry().trim().equals(""));
-        assertFalse(target2.getYearFounded() > 0);
+        assertFalse(target2.getYearFounded() == 0);
 
     }
 
@@ -73,14 +73,13 @@ class LaunchServiceProviderTest {
     @Test
     public void shouldThrowExceptionWhenSetRocketsToEmpty() {
         Set<Rocket> rockets = new HashSet<>();
-
-
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target2.setRockets(rockets));
+        assertEquals("rockets cannot be empty", exception.getMessage());
     }
 
     @DisplayName("should throw exception when pass null to setHeadquarters function")
     @Test
     public void shouldThrowExceptionWhenSetRocketsToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target2.setRockets(null));
-        assertEquals("null", exception.getMessage());
     }
 }

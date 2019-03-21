@@ -5,8 +5,7 @@ import com.google.common.collect.Sets;
 import java.util.Objects;
 import java.util.Set;
 
-import static org.apache.commons.lang3.Validate.notBlank;
-import static org.apache.commons.lang3.Validate.notNull;
+import static org.apache.commons.lang3.Validate.*;
 
 public class LaunchServiceProvider extends Entity {
     private String name;
@@ -54,15 +53,12 @@ public class LaunchServiceProvider extends Entity {
 
     public void setHeadquarters(String headquarters) {
 
-        notBlank(headquarters, "password cannot be null or empty");
+        notBlank(headquarters, "headquarters cannot be null or empty");
         this.headquarters = headquarters;
     }
 
     public void setRockets(Set<Rocket> rockets) {
-
-        if (rockets.size() > 0){
-            this.rockets = rockets;
-        }
+        notEmpty(rockets,"rockets cannot be empty");
     }
 
     @Override
