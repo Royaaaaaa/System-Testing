@@ -44,7 +44,9 @@ public class User extends Entity {
         return password;
     }
 
+    // ext.1. Add nonBlank constraint;
     public void setPassword(String password) {
+        notBlank(password, "password cannot be null or empty");
         this.password = password;
     }
 
