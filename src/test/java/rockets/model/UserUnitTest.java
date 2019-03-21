@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+//import javax.mail.internet.InternetAddress;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,7 +41,7 @@ public class UserUnitTest {
         assertEquals("lastname cannot be null or empty", exception.getMessage());
     }
 
-    @DisplayName("should throw exception when pass null to setName function")
+    @DisplayName("should throw exception when pass null to set last name function")
     @Test
     public void shouldThrowExceptionWhenSetLastNameToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target.setLastName(null));
@@ -99,6 +100,13 @@ public class UserUnitTest {
         assertFalse(target.equals(anotherUser));
     }
 
-    //Maya change
+    @DisplayName("should return true when email is valid")
+    //https://crunchify.com/how-to-validate-email-address-using-java-mail-api/
+    @ParameterizedTest
+    @ValueSource(strings = "xsui0001@student.monash.edu")
+    public void shouldReturnTruewhenEmailisValid(String email) {
+        target.setEmail(email);
+        assertTrue(target.getEmail().contains("@"));
+    }
     
 }

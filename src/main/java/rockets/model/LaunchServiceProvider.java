@@ -5,6 +5,9 @@ import com.google.common.collect.Sets;
 import java.util.Objects;
 import java.util.Set;
 
+import static org.apache.commons.lang3.Validate.notBlank;
+import static org.apache.commons.lang3.Validate.notNull;
+
 public class LaunchServiceProvider extends Entity {
     private String name;
 
@@ -17,6 +20,11 @@ public class LaunchServiceProvider extends Entity {
     private Set<Rocket> rockets;
 
     public LaunchServiceProvider(String name, int yearFounded, String country) {
+        // change
+        notNull(name);
+        notNull(yearFounded);
+        notNull(country);
+
         this.name = name;
         this.yearFounded = yearFounded;
         this.country = country;
@@ -45,11 +53,16 @@ public class LaunchServiceProvider extends Entity {
     }
 
     public void setHeadquarters(String headquarters) {
+
+        notBlank(headquarters, "password cannot be null or empty");
         this.headquarters = headquarters;
     }
 
     public void setRockets(Set<Rocket> rockets) {
-        this.rockets = rockets;
+
+        if (rockets.size() > 0){
+            this.rockets = rockets;
+        }
     }
 
     @Override
