@@ -5,7 +5,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-//import javax.mail.internet.InternetAddress;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -100,13 +102,23 @@ public class UserUnitTest {
         assertFalse(target.equals(anotherUser));
     }
 
-    @DisplayName("should return true when email is valid")
-    //https://crunchify.com/how-to-validate-email-address-using-java-mail-api/
+//    @DisplayName("should return true when email is valid")
+//    //https://crunchify.com/how-to-validate-email-address-using-java-mail-api/
+//    @ParameterizedTest
+//    @ValueSource(strings = "xsui0001@student.monash.edu")
+//    public void shouldReturnTruewhenEmailisValid(String email) {
+//        target.setEmail(email);
+//        assertTrue(target.getEmail().contains("@"));
+//    }
+
+
+    @DisplayName(("should return true when email is valid"))
     @ParameterizedTest
-    @ValueSource(strings = "xsui0001@student.monash.edu")
-    public void shouldReturnTruewhenEmailisValid(String email) {
-        target.setEmail(email);
-        assertTrue(target.getEmail().contains("@"));
+    @ValueSource(strings = "ygao0018@student.monash.edu")
+    public void shouldReturnTruewhenEmailisValid(String email) throws AddressException {
+        target.setEmail((email));
+        InternetAddress emailAddr = new InternetAddress(email);
+        emailAddr.validate();
     }
     
 }
