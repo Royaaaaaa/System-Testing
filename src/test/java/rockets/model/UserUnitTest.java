@@ -82,6 +82,24 @@ public class UserUnitTest {
         assertEquals("password cannot be null or empty", exception.getMessage());
     }
 
+
+//    (?=.*[0-9]) a digit must occur at least once
+//    (?=.*[a-z]) a lower case letter must occur at least once
+//    (?=.*[A-Z]) an upper case letter must occur at least once
+//    (?=.*[@#$%^&+=]) a special character must occur at least once
+//    (?=\\S+$) no whitespace allowed in the entire string
+//    .{8,} at least 8 characters
+
+    @DisplayName("should throw exception when the password has right pattern.")
+    @ParameterizedTest
+    @ValueSource(strings = {"aaZZa44@"})
+    public void shouldThrowExceptionWhenSetPasswordToRightPattern(String password) {
+        String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+        password.matches(pattern);
+    }
+
+
+
     @DisplayName("should return true when two users have the same email")
     @Test
     public void shouldReturnTrueWhenUsersHaveSameEmail() {
