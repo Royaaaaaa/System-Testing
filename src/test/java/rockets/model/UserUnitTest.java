@@ -92,7 +92,7 @@ public class UserUnitTest {
 
     @DisplayName("should throw exception when the password has right pattern.")
     @ParameterizedTest
-    @ValueSource(strings = {"aaZZa88884@"})
+    @ValueSource(strings = {"aaZZa4@"})
     public void shouldThrowExceptionWhenSetPasswordToRightPattern(String password) {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setPassword(password));
         assertEquals("Invalid password", exception.getMessage());
