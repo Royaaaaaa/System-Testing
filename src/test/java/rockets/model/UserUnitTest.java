@@ -112,6 +112,7 @@ public class UserUnitTest {
 //    }
 
 
+    //https://crunchify.com/how-to-validate-email-address-using-java-mail-api/
     @DisplayName(("should return true when email is valid"))
     @ParameterizedTest
     @ValueSource(strings = "ygao0018@student.monash.edu")
