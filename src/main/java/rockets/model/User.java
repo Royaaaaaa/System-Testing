@@ -49,9 +49,17 @@ public class User extends Entity {
     }
 
     // ext.1. Add nonBlank constraint;
+    //     2. Add constraint to test if the password is valid or not.
     public void setPassword(String password) {
         notBlank(password, "password cannot be null or empty");
-        this.password = password;
+        String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+        if (password.matches(pattern)){
+                this.password = password;
+        }
+        else{
+            throw new IllegalArgumentException("Invalid password");
+        }
+
     }
 
     // match the given password against user's password and return the result
