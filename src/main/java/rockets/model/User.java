@@ -50,6 +50,7 @@ public class User extends Entity {
 
     // ext.1. Add nonBlank constraint;
     //     2. Add constraint to test if the password is valid or not.
+    //https://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
     public void setPassword(String password) {
         notBlank(password, "password cannot be null or empty");
         String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
