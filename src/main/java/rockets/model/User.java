@@ -22,6 +22,11 @@ public class User extends Entity {
     // ext.2. Add nonBlank constraint
     public void setFirstName(String firstName) {
         notBlank(firstName, "firstname cannot be null or empty");
+        for(int i = 0; i< firstName.length(); i++){
+            if (!Character.isLetter(firstName.charAt(i))){
+                throw new IllegalArgumentException("Invalid first name!");
+            }
+        }
         this.firstName = firstName;
     }
 
@@ -32,6 +37,11 @@ public class User extends Entity {
     // ext.3. Add nonBlank constraint
     public void setLastName(String lastName) {
         notBlank(lastName, "lastname cannot be null or empty");
+        for(int i = 0; i< lastName.length(); i++){
+            if (!Character.isLetter(lastName.charAt(i))){
+                throw new IllegalArgumentException("Invalid last name!");
+            }
+        }
         this.lastName = lastName;
     }
 

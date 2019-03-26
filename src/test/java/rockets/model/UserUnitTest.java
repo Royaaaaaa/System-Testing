@@ -35,6 +35,14 @@ public class UserUnitTest {
         assertEquals("firstname cannot be null or empty", exception.getMessage());
     }
 
+    @DisplayName(("should throw exception when first name is invalid"))
+    @ParameterizedTest
+    @ValueSource(strings = "ygao0018")
+    public void shouldThrowExceptionWhenFirstNameIsInvalid(String firstname){
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setFirstName(firstname));
+        assertEquals("Invalid first name!", exception.getMessage());
+    }
+
     @DisplayName("should throw exception when pass a empty last name to setLastName function")
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "  "})
@@ -48,6 +56,14 @@ public class UserUnitTest {
     public void shouldThrowExceptionWhenSetLastNameToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target.setLastName(null));
         assertEquals("lastname cannot be null or empty", exception.getMessage());
+    }
+
+    @DisplayName(("should throw exception when last name is invalid"))
+    @ParameterizedTest
+    @ValueSource(strings = "ygao0018")
+    public void shouldThrowExceptionWhenLastNameIsInvalid(String lastname){
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setLastName(lastname));
+        assertEquals("Invalid last name!", exception.getMessage());
     }
 
 
