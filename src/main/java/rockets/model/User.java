@@ -41,7 +41,13 @@ public class User extends Entity {
 
     public void setEmail(String email) {
         notBlank(email, "email cannot be null or empty");
-        this.email = email;
+
+        if (email.contains("@")){
+            this.email = email;
+        }else{
+            throw new IllegalArgumentException("Invalid email");
+        }
+
     }
 
     public String getPassword() {
