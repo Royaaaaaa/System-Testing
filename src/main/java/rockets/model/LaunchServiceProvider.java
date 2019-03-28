@@ -59,6 +59,7 @@ public class LaunchServiceProvider extends Entity {
 
     public void setRockets(Set<Rocket> rockets) {
         notEmpty(rockets,"rockets cannot be empty");
+        this.rockets = rockets;
     }
 
     @Override
