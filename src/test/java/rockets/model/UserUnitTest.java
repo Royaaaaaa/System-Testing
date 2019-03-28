@@ -35,12 +35,20 @@ public class UserUnitTest {
         assertEquals("firstname cannot be null or empty", exception.getMessage());
     }
 
-    @DisplayName(("should throw exception when first name is invalid"))
+    @DisplayName("should throw exception when first name is invalid")
     @ParameterizedTest
     @ValueSource(strings = "ygao0018")
     public void shouldThrowExceptionWhenFirstNameIsInvalid(String firstname){
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setFirstName(firstname));
         assertEquals("Invalid first name!", exception.getMessage());
+    }
+
+    @DisplayName("should throw exception when first name is too long!")
+    @ParameterizedTest
+    @ValueSource(strings = "ygao0018jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+    public void shouldThrowExceptionWhenFirstNameIsTooLong(String firstname){
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setFirstName(firstname));
+        assertEquals("First name should not be too long!", exception.getMessage());
     }
 
     @DisplayName("should throw exception when pass a empty last name to setLastName function")
@@ -58,12 +66,20 @@ public class UserUnitTest {
         assertEquals("lastname cannot be null or empty", exception.getMessage());
     }
 
-    @DisplayName(("should throw exception when last name is invalid"))
+    @DisplayName("should throw exception when last name is invalid")
     @ParameterizedTest
     @ValueSource(strings = "ygao0018")
     public void shouldThrowExceptionWhenLastNameIsInvalid(String lastname){
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setLastName(lastname));
         assertEquals("Invalid last name!", exception.getMessage());
+    }
+
+    @DisplayName("should throw exception when last name is too long!")
+    @ParameterizedTest
+    @ValueSource(strings = "ygao0018jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+    public void shouldThrowExceptionWhenLastNameIsTooLong(String lastname){
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target.setLastName(lastname));
+        assertEquals("Last name should not be too long!", exception.getMessage());
     }
 
 
@@ -146,7 +162,7 @@ public class UserUnitTest {
 //    }
 
 
-    @DisplayName(("should throw exception when email is invalid"))
+    @DisplayName("should throw exception when email is invalid")
     @ParameterizedTest
     @ValueSource(strings = "ygao0018student.monash.edu")
     public void shouldThrowExceptionWhenEmallIsInvalid(String email){
