@@ -50,13 +50,6 @@ class RocketUnitTest {
         assertFalse(target2.equals(testRocket));
     }
 
-    @DisplayName("should throw exception when pass a empty massToLEO to setMassToLEO function")
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "  "})
-    public void shouldThrowExceptionWhenSetMassToLEOToEmpty(String massToLEO) {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target2.setMassToLEO(massToLEO));
-        assertEquals("massToLEO cannot be null or empty", exception.getMessage());
-    }
 
     @DisplayName("should throw exception when pass null to setMassToLEO function")
     @Test
@@ -65,27 +58,11 @@ class RocketUnitTest {
         assertEquals("massToLEO cannot be null or empty", exception.getMessage());
     }
 
-    @DisplayName("should throw exception when pass a empty massToGTO to setMassToGTO function")
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "  "})
-    public void shouldThrowExceptionWhenSetMassToGTOToEmpty(String massToGTO) {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target2.setMassToGTO(massToGTO));
-        assertEquals("massToGTO cannot be null or empty", exception.getMessage());
-    }
-
     @DisplayName("should throw exception when pass null to setMassToGTO function")
     @Test
     public void shouldThrowExceptionWhenSetMassToGTOToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target2.setMassToGTO(null));
         assertEquals("massToGTO cannot be null or empty", exception.getMessage());
-    }
-
-    @DisplayName("should throw exception when pass a empty massToOther to setMassToOther function")
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "  "})
-    public void shouldThrowExceptionWhenSetMassToOtherToEmpty(String massToOther) {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target2.setMassToOther(massToOther));
-        assertEquals("massToOther cannot be null or empty", exception.getMessage());
     }
 
     @DisplayName("should throw exception when pass null to setMassToOther function")
