@@ -69,14 +69,6 @@ class LaunchServiceProviderTest {
         assertEquals("headquarters cannot be null or empty", exception.getMessage());
     }
 
-    @DisplayName("should throw exception when pass an empty set to setRockets function")
-    @Test
-    public void shouldThrowExceptionWhenSetRocketsToEmpty() {
-        Set<Rocket> rockets = new HashSet<>();
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> target2.setRockets(rockets));
-        assertEquals("rockets cannot be empty", exception.getMessage());
-    }
-
     @DisplayName("should throw exception when pass null to setHeadquarters function")
     @Test
     public void shouldThrowExceptionWhenSetRocketsToNull() {
