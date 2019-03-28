@@ -41,7 +41,6 @@ class LaunchServiceProviderTest {
 
     @DisplayName("should return true when two providers are the same")
     @Test
-
     public void shouldReturnTrueWhenProvidersAreTheSame() {
         LaunchServiceProvider testProvider = new LaunchServiceProvider("rocket", 2018,"country");
         assertTrue(target2.equals(testProvider));

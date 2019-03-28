@@ -55,21 +55,21 @@ class RocketUnitTest {
     @Test
     public void shouldThrowExceptionWhenSetMassToLEOToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target2.setMassToLEO(null));
-        assertEquals("massToLEO cannot be null or empty", exception.getMessage());
+        assertEquals("massToLEO cannot be null", exception.getMessage());
     }
 
     @DisplayName("should throw exception when pass null to setMassToGTO function")
     @Test
     public void shouldThrowExceptionWhenSetMassToGTOToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target2.setMassToGTO(null));
-        assertEquals("massToGTO cannot be null or empty", exception.getMessage());
+        assertEquals("massToGTO cannot be null", exception.getMessage());
     }
 
     @DisplayName("should throw exception when pass null to setMassToOther function")
     @Test
     public void shouldThrowExceptionWhenSetMassToOtherToNull() {
         NullPointerException exception = assertThrows(NullPointerException.class, () -> target2.setMassToOther(null));
-        assertEquals("massToOther cannot be null or empty", exception.getMessage());
+        assertEquals("massToOther cannot be null", exception.getMessage());
     }
 
 }
