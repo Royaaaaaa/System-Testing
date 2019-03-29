@@ -21,7 +21,7 @@ public class User extends Entity {
 
     // ext.2. Add nonBlank constraint
     public void setFirstName(String firstName) {
-        notBlank(firstName, "irstname cannot be null or empty");
+        notBlank(firstName, "firstname cannot be null or empty");
         int len = firstName.length();
         if (len > 50){
             throw new IllegalArgumentException("First name should not be too long!");
